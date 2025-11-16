@@ -1,0 +1,29 @@
+# Obsidian - dynamic files only
+.obsidian/workspace
+.obsidian/workspace.json
+.obsidian/workspaces.json
+.obsidian/community-plugins.json
+.obsidian/plugins/
+.obsidian/graph.json
+.obsidian/cache
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary Files
+*.tmp
+*.bak
+*.backup
+~$*
+
+# Logs
+*.log
