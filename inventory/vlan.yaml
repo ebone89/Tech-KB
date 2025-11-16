@@ -1,0 +1,11 @@
+vlans:
+  - id: 1
+    name: lan
+    subnet: 10.0.0.0/24
+    gateway: 10.0.0.1
+    notes: flat LAN for all wired and wireless devices
+  - id: 30
+    name: tailscale
+    subnet: 100.64.0.0/10
+    gateway: n/a
+    notes: virtual overlay for Ethan’s private nodes; partially isolates lab traffic

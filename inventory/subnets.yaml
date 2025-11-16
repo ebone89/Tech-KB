@@ -1,0 +1,15 @@
+subnets:
+  - name: lan
+    cidr: 10.0.0.0/24
+    purpose: home and lab wired
+    gateway: 10.0.0.1
+
+  - name: tailscale-overlay
+    cidr: 100.64.0.0/10
+    purpose: secure overlay
+    gateway: dynamic
+
+  - name: wireguard-tunnel
+    cidr: 10.2.0.0/24
+    purpose: assumed WireGuard tunnel network for workstation-01 (verify)
+    gateway: remote-endpoint

@@ -1,0 +1,166 @@
+devices:
+- dns:
+  - 10.0.0.1
+  interfaces:
+  - ip: dhcp
+    name: wan
+  - ip: 10.0.0.1/24
+    name: lan
+    vlan: 1
+  mgmt_ip: 10.0.0.1
+  model: XB7 or XB8
+  name: xfinity-router
+  notes: primary gateway and DHCP for LAN; Wi-Fi for family devices
+  os: stock
+  role: router
+  site: home
+  vendor: xfinity
+- dns:
+  - 10.0.0.1
+  mgmt_ip: none
+  model: 4-port
+  name: unmanaged-switch-4p
+  notes: dumb switch connecting router to main PCs and Proxmox
+  role: switch
+  site: home
+  vendor: generic
+- dns:
+  - 10.0.0.1
+  interfaces:
+  - ip: 10.0.0.110/24
+    name: eth0
+    vlan: 1
+  mgmt_ip: 10.0.0.110
+  name: workstation-01
+    role: desktop
+    vendor: custom
+    os: windows11
+    site: home
+    mgmt_ip: 10.0.0.101
+    tailscale_ip: 100.81.176.15
+    interfaces:
+      - name: eth0
+        type: ethernet
+        ip: 10.0.0.101
+        subnet: lan
+      - name: tailscale0
+        type: overlay
+        ip: 100.81.176.15
+        subnet: tailscale-overlay
+      - name: wg0
+        type: vpn
+        ip: 10.2.0.2
+        subnet: wireguard-tunnel
+    notes: >
+      main PC; connected by ethernet to router; runs Proton VPN; Tailscale active;
+      WireGuard client active on wg0
+- dns:
+  - 10.0.0.1
+  interfaces:
+  - ip: 10.0.0.111/24
+    name: eth0
+    vlan: 1
+  mgmt_ip: 10.0.0.111
+  name: asrock12700k
+  notes: secondary PC for testing and light workloads
+  os: windows11
+  role: desktop
+  site: home
+  tailscale_ip: 100.123.57.45
+  vendor: asrock
+- dns:
+  - 10.0.0.1
+  interfaces:
+  - ip: 10.0.0.100/24
+    name: eth0
+    vlan: 1
+  mgmt_ip: 10.0.0.100
+  name: proxmox
+  notes: single-node Proxmox host; least-privilege ACLs for ethan@pam; 2FA planned
+  os: proxmox-ve 8.4.14
+  role: hypervisor
+  site: home
+  storage:
+  - mount: /var/lib/vz
+    name: local
+    type: dir
+  - mount: local-zfs
+    name: local-zfs
+    type: zfs
+  - mount: /mnt/pve/data
+    name: data
+    type: dir
+  tailscale_ip: 100.127.81.58
+  vendor: custom
+  vms:
+  - disk_gb: 75
+    id: 100
+    mem_gb: 16
+    name: ubuntu-desktop
+  - disk_gb: 64
+    id: 101
+    mem_gb: 6
+    name: ubuntu-server
+- dns:
+  - 10.0.0.1
+  interfaces:
+  - ip: 10.0.0.114/24
+    name: eth0
+    vlan: 1
+  mgmt_ip: 10.0.0.114
+  name: ubuntu-server-p1
+  notes: remote-accessible via Tailscale; general services
+  os: ubuntu 24.04
+  role: server
+  site: home
+  tailscale_ip: 100.66.4.47
+  vendor: custom
+- dns:
+  - 10.0.0.1
+  interfaces:
+  - ip: 10.0.0.115/24
+    name: eth0
+    vlan: 1
+  mgmt_ip: 10.0.0.115
+  name: ubuntu-pd1
+  notes: portable dev node for tests
+  os: ubuntu 24.04
+  role: desktop
+  site: home
+  tailscale_ip: 100.85.32.2
+  vendor: custom
+- dns:
+  - 10.0.0.1
+  interfaces:
+  - ip: 10.0.0.112/24
+    name: eth0
+    vlan: 1
+  mgmt_ip: 10.0.0.112
+  name: ethansg5laptop
+  notes: wireless client via 5 GHz Wi-Fi
+  os: windows11
+  role: laptop
+  site: home
+  tailscale_ip: 100.86.26.84
+  vendor: lg
+- dns:
+  - 10.0.0.1
+  interfaces:
+  - ip: 10.0.0.150/24
+    name: eth0
+    vlan: 1
+  mgmt_ip: 10.0.0.150
+  name: xbox-x
+  notes: wired to router
+  os: xboxos
+  role: gaming
+  site: home
+  vendor: microsoft
+- name: family-wifi-devices
+  notes: personal devices of family members on Wi-Fi
+  os: ios/android
+  role: mixed-clients
+  site: home
+  vendor: various
+updated: 2025-11-01
+version: 1

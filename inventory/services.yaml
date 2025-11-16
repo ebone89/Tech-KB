@@ -1,0 +1,26 @@
+services:
+  - name: jellyfin
+    host: proxmox
+    deployment: docker-compose
+    vm: ubuntu-server
+    url: http://jellyfin.local
+    data_path: /mnt/pve/data/media
+    backups: borg:/mnt/pve/data/backups/jellyfin
+    notes: self-hosted media server; GPU transcode support planned
+
+  - name: duplicati
+    host: proxmox
+    deployment: docker-compose
+    url: https://dup.local
+    data_path: /mnt/pve/data/backups
+    notes: used for Proxmox and VM data backups
+
+  - name: proton-vpn
+    host: workstation-01
+    deployment: desktop-client
+    notes: VPN for egress traffic; binds qBittorrent
+
+  - name: tailscale
+    host: all
+    deployment: client
+    notes: tailnet overlay for lab and remote access
