@@ -1,6 +1,6 @@
-# Tech Knowledge Base
+# Tech-GPT-KB
 
-Welcome to the Tech Knowledge Base - your comprehensive resource for computer science, networking, development, and system administration.
+Welcome to Tech-GPT-KB - your comprehensive resource for computer science, networking, development, and system administration.
 
 ## 📚 Knowledge Areas
 

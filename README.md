@@ -1,4 +1,4 @@
-# Tech-KB - Technical Knowledge Base
+# Tech-GPT-KB - Technical Knowledge Base
 
 A comprehensive technical knowledge base designed to work as both an **Obsidian vault** and a **knowledge source for custom GPTs**. This repository covers computer science fundamentals, networking, development, Linux, Windows, and includes extensive command-line cheat sheets.
 
