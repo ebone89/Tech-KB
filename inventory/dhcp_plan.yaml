@@ -1,0 +1,24 @@
+infra: []
+iot:
+- hostname: sylvania-bulb-1
+  mac: TBD
+  ip: 10.0.0.50
+  notes: 2.4GHz smart light device
+- hostname: sylvania-bulb-2
+  mac: TBD
+  ip: 10.0.0.51
+  notes: 2.4GHz smart light device
+- hostname: sylvania-bulb-3
+  mac: TBD
+  ip: 10.0.0.53
+  notes: 2.4GHz smart light device
+- hostname: sylvania-bulb-4
+  mac: TBD
+  ip: 10.0.0.54
+  notes: 2.4GHz smart light device
+- hostname: sylvania-strip-1
+  mac: TBD
+  ip: 10.0.0.55
+  notes: 2.4GHz smart light device
+dhcp_pool: 10.0.0.100-10.0.0.199
+admin_reserved: 10.0.0.200-10.0.0.254
